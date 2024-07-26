@@ -90,7 +90,7 @@ function App() {
       </Canvas>
       {(!isLoggedIn && !isSignup) && <Login onLogin={handleLogin} signup={setIsSignup} />}
       {isSignup && <Signup signup={signup} />}
-      {isTrFun && <Transfer isLoggedIn={isLoggedIn} setDataTR={setDataTR} data={dataTR} setTrFun={setTrFun} setIsTransfer={async(to, amount)=>{await transferreq(name, to, amount, setDataTR, token);}}/>}
+      {isTrFun && <Transfer isLoggedIn={isLoggedIn} setDataTR={setDataTR} data={dataTR} setTrFun={setTrFun} setIsTransfer={async(to, amount)=>{await transferreq(userId, to, amount, setDataTR, token);}}/>}
       {isDpFun &&<Deposit isLoggedIn={isLoggedIn} setDataD={setDataD} data={dataD} setDpFun={setDpFun} handleDpFun={async(amount)=>{await depositreq(userId, amount, setDataD, token);}}/>}
       {isWdFun &&<Withdraw isLoggedIn={isLoggedIn} setDataW={setDataW} data={dataW} setWd={setWd} handleWdfun={async(amount)=>{await withdrawReq(userId, amount, setDataW, token);}}/>}
       {isCBFun &&<CheckBalance isLoggedIn={isLoggedIn} setDataCB={setDataCB} data={dataCB} setCB={setCB} balance={balance} getDetails={async()=>{await checkBalancereq(userId, setBalance, setDataCB, token);}}/>}
